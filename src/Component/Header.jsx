@@ -23,7 +23,7 @@ function Header() {
           </Link>
 
 <div>
-<ul style={{display : open == true ? "block" :"" }}  className="hidden sm:bg-none sm:text-white bg-gradient-to-r from-white via-blue-400 to-red-500 h-[120px] text-red-400 sm:gap-8 spac md:flex md:items-center  mt-10 absolute md:static md:opacity-100 transition-all duration-300 left-0 w-full md:w-auto">
+<ul style={{display : open == true ? "block" :"" }}  className="hidden sm:bg-none sm:text-white bg-gradient-to-r from-white via-blue-400 to-red-500 h-[120px] text-red-400 sm:gap-8 spac md:flex md:items-center   absolute md:static md:opacity-100 transition-all duration-300 left-0 w-full md:w-auto">
           {/* ${
                "opacity-100 top-16" : "opacity-0 top-[-400px]"
             }  */}
