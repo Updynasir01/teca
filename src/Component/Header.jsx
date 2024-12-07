@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import img from '../assets/Logo.png';
 
 function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [open ,setopen]=useState(false)
+  const handleopen = () =>{
+      setopen(true)
+  }
+  const handleclose =()=>{
+      setopen(false)
+  }
 
   return (
     <>
@@ -15,28 +21,34 @@ function Header() {
               <img className="w-20" src={img} alt="Logo" />
             </div>
           </Link>
-          <ul
-            className={`hidden space-x-6 md:flex md:items-center gap-8 absolute md:static md:opacity-100 transition-all duration-300 ${
-              menuOpen ? "opacity-100 top-16" : "opacity-0 top-[-400px]"
-            } left-0 w-full md:w-auto`}>
+
+<div>
+<ul style={{display : open == true ? "block" :"" }}  className="hidden bg-gradient-to-r from-white via-blue-400 to-red-500 h-[120px] text-red-400  spac md:flex md:items-center  mt-10 absolute md:static md:opacity-100 transition-all duration-300 left-0 w-full md:w-auto">
+          {/* ${
+               "opacity-100 top-16" : "opacity-0 top-[-400px]"
+            }  */}
             <Link to="/" >
-              <li onClick={() => setMenuOpen(false)} className="py-2 md:py-0 md:px-0 px-6 hover:text-black">Home</li>
+              <li onClick={() => setMenuOpen(false)} className=" md:py-0 md:px-0 px-6 hover:text-black">Home</li>
             </Link>
             <Link to="/ServiceProduct">
-              <li onClick={() => setMenuOpen(false)} className="py-2 md:py-0 md:px-0 px-6 hover:text-black">Service</li>
+              <li onClick={() => setMenuOpen(false)} className=" md:py-0 md:px-0 px-6 hover:text-black">Service</li>
            </Link>
             <Link to="/WhyChooseUs" >
-              <li onClick={() => setMenuOpen(false)} className="py-2 md:py-0 md:px-0 px-6 hover:text-black">Why Choose Us</li>
+              <li onClick={() => setMenuOpen(false)} className=" md:py-0 md:px-0 px-6 hover:text-black">Why Choose Us</li>
             </Link>
-            <Link to="/FAQ"> <li className="hover:text-black cursor-pointer">Help & FAQs</li></Link> 
+            <Link to="/FAQ"> <li className="  hover:text-black md:px-0 ml-6 cursor-pointer">Help & FAQs</li></Link> 
 
           </ul>
+
+</div>
+          
 
           {/* Hamburger Icon */}
           <i
             className="fa-solid fa-bars text-3xl cursor-pointer mx-2 md:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
+            onClick={handleopen} style={{display :open == true ?"none" :""}}
           ></i>
+          <i onClick={handleclose}  style={{display :open == false ?"none" :""}}  class="fa-solid fa-xmark text-3xl cursor-pointer mx-2 md:hidden    "></i>
 
           {/* Buttons */}
           <div className="hidden md:flex space-x-4">
